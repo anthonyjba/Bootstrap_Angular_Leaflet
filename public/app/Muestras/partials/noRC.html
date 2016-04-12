@@ -1,0 +1,24 @@
+<!-- partials/noRC.html -->
+<div class="container-fluid" style="background-color: #2A2A2A;">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="dh">
+        <h5>Referencia Catastral : </h5>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-with-icon">
+        <input type="text" value="11032A00100063" class="form-control">
+        <span class="icon icon-calendar"></span>         
+      </div>
+    </div>
+    <div><button value="11032A00100063" onclick='sendRefCat(this)'>Ver Detalle </button></div>
+  </div>
+</div>
+
+<script>
+  function sendRefCat(obj){
+    
+    window.location.href='#/RefCat/'+ obj.value;
+  }
+</script>

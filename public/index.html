@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-ng-app="app">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detallle de Muestras</title>
+    <meta name="description" content="Utilidad ARHs">
+    <meta name="author" content="Detalle de Muestras">
+
+    
+  
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Style catastro intranet-->
+    <link rel="stylesheet" href="css/style.css">
+   
+    <!-- Leaflet -->   
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />       
+    
+     <!-- Data Grid-->
+    <link rel="stylesheet" href="css/table.css">
+            
+    <!-- Iconos font-awesome -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <!-- BackTop -->
+    <link rel="stylesheet" href="lib/backTop/css/backTop.css">    
+
+    <!-- Parallax cabecera-->
+    <link rel="stylesheet" href="css/logoParallax.css">
+
+
+    <style>
+        .map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+    
+</head>
+
+
+<body>
+  <div ng-init="show='a'">
+
+    <!-- CABECERA DE LA APP-->
+    
+    <nav id="headerParallax" class="navbar-wrapper navbar-fixed-top" style="background-color: #282B30;">
+        <div class="container-fluid">
+            <nav id="headerParallaxNavBar" class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                        </button>
+                        <span class="navbar-brand">
+                            Analiza -
+                            <small style="color:#888888">Detalle de Muestras</small>
+                        </span>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse" style="float:right;margin-right:50px;">              
+                        <!-- Botonera -->
+                        <ul class="nav navbar-nav">
+                          <li><a ng-click='mc.accionBoton1()'><em class="glyphicon glyphicon-menu-hamburger"></em> Botón 1</a></li>
+                          <li><a ng-click='mc.accionBoton2()'><em class="glyphicon glyphicon-globe"></em> Botón 2</a></li>							
+                          <li><a href="mailto:areaderustica@catastro.minhap.es"><em class="glyphicon glyphicon-envelope"></em> Contacto</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </nav>
+    
+    </br>
+     
+    <div ui-view></div>
+            
+    <!-- PLUGIN BACK TO TOP-->
+    <a id='backTop'>Back To Top</a>
+
+    <footer class="footer">
+        <div class="panel-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <p><a href="#" class="logo"><img class="img-responsive" src="images/logo-dark.png"></a></p>
+                        <p>Dirección General del Catastro. Ministerio de Hacienda y Administraciones Públicas</p>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- LIBRERIAS-->
+    <!-- Jquery -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->        
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+            
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>    
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.7/i18n/angular-locale_es-es.js"></script>    
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.js"></script>    <!-- sanitize -->
+           
+    <!-- LeafLet -->    
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="lib/leaflet/plugin-topojson.js"></script>
+    
+    <!-- d3 -->
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    
+    <!-- crossfilter -->
+    <script type="text/javascript" src="/lib/crossfilter.js"></script>
+    
+    <!-- Smart Table -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.3/smart-table.min.js"></script>
+              
+    <!-- BACK_TOP -->
+    <script src="lib/backTop/jquery.backTop.js"></script>
+
+    <!-- FIN LIBRERIAS-->
+        
+    <!-- APP -->
+    <script src="app/app.config.js"></script>    
+    <script src="app/Utils/cargaDatos.service.js"></script>
+    <script src="app/Utils/stTable.directive.js"></script>
+    <script src="app/Utils/funciones.js"></script>
+    
+    <script src="app/Muestras/fichaMuestra.controller.js"></script>    
+    <script src="app/Muestras/Services/PotencialAgrologico.service.js"></script>
+    <script src="app/Muestras/Services/DetalleMuestra.service.js"></script>
+    
+    <script src="app/Regional/regional.controller.js"></script>
+    <script src="app/Regional/Services/mapLeaflet.service.js"></script>
+    <script src="app/Regional/Services/cube.service.js"></script>    
+
+    <script src="data/capas/topojson/OCMI_CCAA_IGN_topo.json"></script>
+    <!-- FIN DATOS -->
+  
+    <script>
+        $(document).ready(function () {
+            $('#backTop').backTop({
+                // the scroll position in px from the top
+                'position': 300,
+                // scroll animation speed
+                'speed': 500,
+                // red, white, black or green
+                'color': 'black',
+            });         
+        });
+
+        $(window).scroll(function () {            
+            if ($(document).scrollTop() > 50) {
+                $('#headerParallax').addClass('small');
+                $('#headerParallaxNavBar').addClass('pequeno');
+                $('#iconosBarraCabecera').show("fast");
+            } else {
+                $('#headerParallax').removeClass('small');
+                $('#headerParallaxNavBar').removeClass('pequeno');
+                $('#iconosBarraCabecera').hide("fast");
+            }
+        });       
+      
+    </script>
+   </div>
+</body>
+</html>

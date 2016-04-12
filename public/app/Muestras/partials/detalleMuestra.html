@@ -1,0 +1,68 @@
+<table style='width:100%;'>
+  <tr>    
+    <!-- Localizacion de Muestra -->
+    <td valign='top' style='width:170px;padding-left:25px'>            
+      <div id='divLocalizacionMuestra' class='fleft dh bloque'>
+        <h2 class='h2_muestra ico1'>Localización<br />de muestra</h2>
+        
+        Delegación - {{ Ficha_Detalle.MuestraDelegacion }} <br />
+        Municipio - {{ Ficha_Detalle.MuestraMunicipio }} <br/> 
+        Hoja - {{ Ficha_Detalle.MuestraHoja }} <br/>
+        Poligono - {{ Ficha_Detalle.MuestraPoligono }}<br/>
+        Parcela - {{ Ficha_Detalle.MuestraParcela }}
+      </div>      
+    </td>
+
+    <!-- Info de Muestra -->
+    <td valign='top' style='width:150px'>
+      <div id='divInfoMuestra' class='fleft dh bloque'>
+        <h2 class='h2_muestra ico3blue'>Muestra</h2>
+        
+        PCatastral1 - {{ Ficha_Detalle.MuestraPCatastral1 }} <br />
+        PCatastral2 - {{ Ficha_Detalle.MuestraPCatastral2 }}<br />
+        Cargo - {{ Ficha_Detalle.MuestraCargo }}<br />
+        Origen - {{ Ficha_Detalle.MuestraOrigen }}<br/>
+        Valor Transmisión - {{ Ficha_Detalle.MuestraValorTransmision }}<br/>
+        Numero Protocolo - {{ Ficha_Detalle.MuestraNumeroProtocolo }}<br/>
+        Fecha Efecto - {{ Ficha_Detalle.MuestraFechaEfecto }}<br/>
+        Número Envío - {{ Ficha_Detalle.MuestraNumeroEnvio }}<br/>
+        Tipo Operación - {{ Ficha_Detalle.MuestraTipoOperacion }}
+      </div>
+    </td>
+    
+    <!-- Info de Inmueble -->
+    <td valign='top' style='width:150px'>
+      <div id='divInfoInmueble' class='fleft dh bloque'>
+        <h2 class='h2_muestra ico6'>Inmueble</h2>
+        
+        ARH - {{ Ficha_Detalle.InmuebleARH }}<br />
+        Superficie Solar - {{ Ficha_Detalle.InmuebleSuperficieSolar }} m²<br />
+        Superficie Construida - {{ Ficha_Detalle.InmuebleSuperficieConstruida }} m²<br/> 
+      </div>
+    </td>
+    
+    <!-- Valores Catastrales -->
+    <td valign='top' style='width:150px'>
+      <div id='divValoresCatastrales' class='fleft dh bloque'>
+        <h2 class='h2_muestra ico5'>Valores<br />
+        
+        Catastrales</h2>RM - {{ Ficha_Detalle.VCRM }}<br />
+        Valor Suelo - {{ Ficha_Detalle.VCValorSuelo }}<br />
+        Valor Construccion - {{ Ficha_Detalle.VCValorConstruccion }}<br/>
+        Valor Catastral - {{ Ficha_Detalle.VCValorCatastral }}<br/>
+        Valor €/ha - {{ Ficha_Detalle.VCValorEuroHectarea }}<br/>        
+      </div>
+    </td>
+    
+    <!-- Valores Referencia -->
+    <td valign='top' style='width:150px'>
+      <div id='divValoresReferencia' class='fleft dh bloque'>
+        <h2 class='h2_muestra ico5blue'>Valor de<br />Referencia</h2>
+        
+        RM Valor Referencia - {{ Ficha_Detalle.VRRM }}<br />
+        Valor de Referencia - {{ Ficha_Detalle.VRValorReferencia }}<br />
+        Valor Ref. Suelo - {{ Ficha_Detalle.VRValorReferenciaSuelo }}<br />
+        Valor €/ha - {{ Ficha_Detalle.VRValorEuroHectarea }}<br /></div>
+    </td>
+ </tr>
+</table>

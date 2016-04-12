@@ -1,0 +1,63 @@
+<!--SECCION-->
+    <section id="seccionRegionales" style="margin-top:25px;margin-bottom:25px;">     
+        <div class="container-fluid">
+
+            <!-- Fila 1   -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Comunidades autónomas</h3>
+                </div>
+            </div>
+            <!-- Fila 2   -->
+            <div class="row">                                         
+                <!---Mapa -->      
+                <div class="col-md-12">    
+                    <div><h4>Mapa</h4></div>
+                    <div class="region-name"></div>                                    
+                    <div class="map" id="map"></div>                        
+                </div>                                  
+            </div>    
+            <div class="row">
+                <div class="col-md-12">
+                    <div><h4>Tabla</h4></div>
+                    <div>
+                        <table st-table="rc.displayedCollection" st-safe-src="rc.rowCollection" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>CCAA</th>
+                                    <th>MSSUB</th>
+                                    <th>MSUP</th>
+                                    <th>MVCAL</th>
+                                    <th>MVCALS</th>
+                                    <th>MVCAT</th>
+                                    <th>MVCATS</th>
+                                    <th>MVTRA</th>
+                                    <th>MVTRAS</th>
+                                    <th>NMUE</th>
+                                    <th>NSUB</th>
+                                    <th>NSUB</th>      
+                                </tr>                                
+                            </thead>
+                            <tbody>
+                                <tr st-select-row ="row" ng-repeat="row in rc.rowCollection">
+                                    <td>{{row.CCAA}}</td>
+                                    <td>{{row.MSSUB}}</td>
+                                    <td>{{row.MSUP}}</td>
+                                    <td>{{row.MVCAL}}</td>
+                                    <td>{{row.MVCALS}}</td>
+                                    <td>{{row.MVCAT}}</td>
+                                    <td>{{row.MVCATS}}</td>
+                                    <td>{{row.MVTRA}}</td>
+                                    <td>{{row.MVTRAS}}</td>
+                                    <td>{{row.NMUE}}</td>
+                                    <td>{{row.NSUB}}</td>
+                                    <td>{{row.NSUB}}</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>     
+        </div>
+
+    </section>

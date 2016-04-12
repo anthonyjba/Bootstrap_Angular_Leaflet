@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/crossfilter.js"></script>
+    
+  </head>
+  <body>
+
+<script>
+(function () {
+    'use strict';
+  
+  $.getJSON("../data/Cubo/cubo.json")
+    .done(filterCubo);
+
+  function filterCubo(data){    
+    /***** Begin code. **/ 
+      var cRegiones = crossfilter(data);
+    
+    var dim_AC = cRegiones.dimension(function(d){return "" + d.AC});
+    var dim_ARH = cRegiones.dimension(function(d){return d.ARH});
+    var dim_CCAA = cRegiones.dimension(function(d){return +d.CCAA}),
+     dim_EFEC = cRegiones.dimension(function(d){return d.EFEC}),
+     dim_EXPL = cRegiones.dimension(function(d){return "" + d.EXPL}),
+     dim_IAMI = cRegiones.dimension(function(d){return d.IAMI}),
+     dim_ORIG = cRegiones.dimension(function(d){return "" + d.ORIG}),
+     dim_PROV = cRegiones.dimension(function(d){return d.PROV});
+     
+    var f1 = dim_AC.filterExact('null').top(Infinity);
+    console.log("f1",f1.length);    
+    var f2 = dim_ARH.filterExact(null).top(Infinity);
+    console.log("f2",f2.length);
+    var f3 = dim_CCAA.filterRange([1,18]).top(Infinity);
+    console.log("f3",f3.length);
+    var f4 = dim_EFEC.filterExact(null).top(Infinity);
+    console.log("f4",f4.length);
+    var f5 =dim_EXPL.filterExact('null').top(Infinity);
+    console.log("f5",f5.length);
+    var f6 =dim_IAMI.filterExact(null).top(Infinity);
+    console.log("f6",f6.length);
+    var f7 =dim_ORIG.filterExact('null').top(Infinity);
+    console.log("f7",f7.length);
+    var f8 =dim_PROV.filterExact(null).top(Infinity);
+    console.log("f8",f8.length);
+    
+    print_filter(f8);
+    /** Result **
+     * [object Object](1) = [
+     *   {"CCAA":null,"PROV":null,"ARH":null,"EXPL":null,"AC":null,"ORIG":null,"EFEC":null,"IAMI":null,"NMUE":104599,"NSUB":110063,"MSUP":5591,"SSUP":1260921218,"MSSUB":5300,"SSSUP":1281298071,"MVCAL":3639.73,"SVCAL":895158319.23,"MVCALS":3517.46,"SVCALS":895158319.23,"MVCAT":411.74,* *"SVCAT":147612127.8,"MVCATS":382.87,"SVCATS":148424405.18,"MVTRA":3700,"SVTRA":1037726553.22,"MVTRAS":3500,"SVTRAS":1037304528.19}]
+    
+    /***** End code. */
+    
+    /*** TIPS : 
+    var stringDim = xfilter.dimension(function(d) { return "" + d.value; });
+    var numDim = xfilter.dimension(function(d) { return +d.value; });
+    var boolDim = xfilter.dimension(function(d) { return d ? true : false; });
+    ****/
+  }
+
+  function print_filter(filter){
+    var f=eval(filter);
+    if (typeof(f.length) != "undefined") {}else{}
+    if (typeof(f.top) != "undefined") {f=f.top(Infinity);}else{}
+    if (typeof(f.dimension) != "undefined") {f=f.dimension(function(d) { return "";}).top(Infinity);}else{}
+    console.log(filter+"("+f.length+") = "+JSON.stringify(f).replace("[","[\n\t").replace(/}\,/g,"},\n\t").replace("]","\n]"));  
+  }
+
+})();
+</script>
+
+</body>
+</html>

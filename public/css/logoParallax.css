@@ -1,0 +1,29 @@
+/*reescribimos el padding-top del body*/
+body{
+padding-top:150px;	
+}
+
+#headerParallax {   
+	height: 175px;	
+	   
+	transition: font-size 1s, height 1s;
+	-webkit-transition: font-size 1s, height 1s;
+	-moz-transition: font-size 1s, height 1s;
+}
+
+#headerParallax.small {    
+	height: 105px;
+}
+
+
+#headerParallaxNavBar {
+	margin-top: 50px;
+	
+	 transition: margin-top 1s;
+	-webkit-transition:  margin-top 1s;
+	-moz-transition: margin-top 1s;
+}
+
+#headerParallaxNavBar.pequeno {
+	margin-top: 30px;
+}
